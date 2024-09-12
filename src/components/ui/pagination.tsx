@@ -74,7 +74,7 @@ const PaginationPrevious = ({
     {...props}
   >
     <ChevronLeftIcon className="h-4 w-4" />
-    <span>以前的</span>
+    <span>下一页</span>
   </PaginationLink>
 )
 PaginationPrevious.displayName = "PaginationPrevious"
