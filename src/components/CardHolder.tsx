@@ -6,7 +6,7 @@ import { cards } from "./cards";
 import { useAtom } from "jotai";
 import { useEffect, useState } from "react";
 import ModalComponent from "./ModalComponent";
-import { motion, Variants } from "framer-motion";
+import { motion } from "framer-motion";
 import {
   Pagination,
   PaginationContent,
@@ -17,13 +17,24 @@ import {
   PaginationPrevious,
 } from "@/components/ui/pagination";
 
+// Define the type for card objects
+interface CardType {
+  id: number;
+  url: string;
+  title: string;
+  isFav: boolean;
+}
+
 const CardHolder = () => {
   const [activeTab, setActiveTab] = useAtom(tabActive);
-  const [activeCards, setActiveCards] = useState([]);
+  const [activeCards, setActiveCards] = useState<CardType[]>([]);
   const [showMd, setShowModal] = useAtom(showModal);
-  const [page, setPage] = useState();
-  const [pageSize, setPageSize] = useState();
-  const [showPagination, setShowPagination] = useState(false);
+  const [page, setPage] = useState<number>(1);
+  const [pageSize, setPageSize] = useState<number>(10);
+  const [total, setTotal] = useState<number>();
+  const [showPagination, setShowPagination] = useState<boolean>(false);
+  const [pageNumber, setPageNumber] = useState();
+  const [paginatedData, setPaginatedData] = useState<CardType[]>([]);
 
   useEffect(() => {
     renderCards();
@@ -34,30 +45,43 @@ const CardHolder = () => {
     if (!favStorage) {
       localStorage.setItem("favorites", JSON.stringify([]));
       favStorage = localStorage.getItem("favorites");
+    }
+
+    const idsToFilter = JSON.parse(favStorage || "[]");
+    if (activeTab === "favorites") {
+      const filteredCards = cards.filter((card) =>
+        idsToFilter.includes(card.id)
+      );
+      setActiveCards(filteredCards);
     } else {
-      const idsToFilter = JSON.parse(favStorage);
-      if (activeTab === "favorites") {
-        const filteredCards = cards.filter((card) =>
-          idsToFilter.includes(card.id)
-        );
-        console.log(filteredCards, "filters");
-        setActiveCards(filteredCards);
-      } else {
-        setActiveCards(cards);
-      }
+      setActiveCards(cards);
     }
-    if (activeCards.length > 10) {
-      setShowPagination(true);
-    }
-    const pages = activeCards.length / 10;
-    console.log(Math.ceil(pages));
   };
-  const next = () => {};
-  const prev = () => {};
-  const customPage = () => {};
+
+  useEffect(() => {
+    console.log("total cards: " + activeCards.length, total);
+    const startIndex = (page - 1) * pageSize;
+    const endIndex = startIndex + pageSize;
+    setPaginatedData(activeCards.slice(startIndex, endIndex));
+    const pageNum = Math.ceil(activeCards.length / pageSize);
+    const pageArray = Array.from({ length: pageNum }, (_, i) => i + 1);
+    if (pageArray) {
+      setPageNumber(pageArray);
+    }
+    console.log(pageNumber, "page number");
+  }, [page, pageSize, activeCards]);
+
+  const next = () => {
+    if (page < Math.ceil(activeCards.length / pageSize)) setPage(page + 1);
+  };
+  const prev = () => {
+    if (page > 1) setPage(page - 1);
+  };
+  const customPage = (pageNum: number) => setPage(pageNum);
+
   return (
     <>
-      {showMd ? (
+      {showMd && (
         <motion.div
           variants={{
             open: { opacity: 1, display: "block" },
@@ -67,16 +91,14 @@ const CardHolder = () => {
         >
           <ModalComponent />
         </motion.div>
-      ) : (
-        ""
       )}
 
       <div
         className={`cardHolder grid ${
-          activeCards.length < 5 ? "grid-cols-5" : "grid-auto-fit-[20rem]"
+          paginatedData.length < 5 ? "grid-cols-5" : "grid-auto-fit-[20rem]"
         } gap-4 ${showMd ? "blur-lg" : ""}`}
       >
-        {activeCards.map((item) => (
+        {paginatedData.map((item) => (
           <Card
             key={item.url}
             url={item.url}
@@ -87,32 +109,41 @@ const CardHolder = () => {
         ))}
       </div>
 
-      {showPagination && (
-        <Pagination>
-          <PaginationContent>
-            <PaginationItem>
-              <PaginationPrevious href="#" />
-            </PaginationItem>
-            <PaginationItem>
-              <PaginationLink href="#">1</PaginationLink>
-            </PaginationItem>
-            <PaginationItem>
-              <PaginationLink href="#" isActive>
-                2
-              </PaginationLink>
-            </PaginationItem>
-            <PaginationItem>
-              <PaginationLink href="#">3</PaginationLink>
-            </PaginationItem>
+      <Pagination>
+        <PaginationContent>
+          <PaginationItem>
+            <PaginationPrevious onClick={prev} />
+          </PaginationItem>
+          {pageNumber &&
+            pageNumber.map((pageNumber) => (
+              <PaginationItem>
+                {pageNumber == page ? (
+                  <PaginationLink
+                    isActive
+                    onClick={() => customPage(pageNumber)}
+                  >
+                    {pageNumber}
+                  </PaginationLink>
+                ) : (
+                  <PaginationLink onClick={() => customPage(pageNumber)}>
+                    {pageNumber}
+                  </PaginationLink>
+                )}
+              </PaginationItem>
+            ))}
+          {pageNumber && pageNumber.length > 3 ? (
             <PaginationItem>
               <PaginationEllipsis />
             </PaginationItem>
-            <PaginationItem>
-              <PaginationNext href="#" />
-            </PaginationItem>
-          </PaginationContent>
-        </Pagination>
-      )}
+          ) : (
+            ""
+          )}
+
+          <PaginationItem>
+            <PaginationNext onClick={next} />
+          </PaginationItem>
+        </PaginationContent>
+      </Pagination>
     </>
   );
 };
