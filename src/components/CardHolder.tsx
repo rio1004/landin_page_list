@@ -185,7 +185,7 @@ const CardHolder = () => {
           </div>
         </div>
       ) : (
-        <Pagination>
+        <Pagination className={`${showMd ? "blur" : ""}`}>
           <PaginationContent>
             <PaginationItem>
               <PaginationPrevious onClick={prev} />
