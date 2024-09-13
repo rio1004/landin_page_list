@@ -15,8 +15,8 @@ const geistMono = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "Landing Page List",
-  description: "List of Landing Pages including yifa, vertical, horizontal",
+  title: "着陆页列表",
+  description: "着陆页列表，包括 yifa、垂直、水平",
 };
 
 export default function RootLayout({
