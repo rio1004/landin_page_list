@@ -26,6 +26,7 @@ import {
 import { Button } from "@/components/ui/button";
 import { Separator } from "./ui/separator";
 import Image from "next/image";
+import PlatformLink from "./PlatformLink";
 // Define the type for card objects
 interface CardType {
   id: number;
@@ -121,38 +122,33 @@ const CardHolder = () => {
       )}
       <div className="platforms flex justify-center mb-[50px]">
         <div className="flex h-5 items-center space-x-4 text-sm">
-          <div
-            className={`${
-              activePlatform == "all"
-                ? "font-black text-[18px] text-[#FEE4A0]"
-                : ""
-            } hover:text-[#FEE4A0] transition-all`}
-            onClick={() => changePlatform("all")}
-          >
-            所有平台
-          </div>
+          <PlatformLink
+            title="所有平台"
+            activePlatform={activePlatform}
+            changePlatform={changePlatform}
+            platform="all"
+          />
           <Separator orientation="vertical" />
-          <div
-            className={`${
-              activePlatform == "vertical"
-                ? "font-black text-[18px] text-[#FEE4A0]"
-                : ""
-            } hover:text-[#FEE4A0] transition-all`}
-            onClick={() => changePlatform("vertical")}
-          >
-            垂直的
-          </div>
+          <PlatformLink
+            title="易发"
+            activePlatform={activePlatform}
+            changePlatform={changePlatform}
+            platform="yifa"
+          />
           <Separator orientation="vertical" />
-          <div
-            className={`${
-              activePlatform == "horizontal"
-                ? "font-black text-[18px] text-[#FEE4A0]"
-                : ""
-            } hover:text-[#FEE4A0] transition-all`}
-            onClick={() => changePlatform("horizontal")}
-          >
-            水平的
-          </div>
+          <PlatformLink
+            title="垂直的"
+            activePlatform={activePlatform}
+            changePlatform={changePlatform}
+            platform="vertical"
+          />
+          <Separator orientation="vertical" />
+          <PlatformLink
+            title="水平的"
+            activePlatform={activePlatform}
+            changePlatform={changePlatform}
+            platform="horizontal"
+          />
         </div>
       </div>
 
@@ -190,7 +186,6 @@ const CardHolder = () => {
             <PaginationItem>
               <PaginationPrevious onClick={prev} />
             </PaginationItem>
-            {/* <PaginationLink onClick={() => customPage(1)}>首页</PaginationLink> */}
             {pageNumber &&
               pageNumber.map((pageNumber) => (
                 <PaginationItem>
@@ -208,23 +203,6 @@ const CardHolder = () => {
                   )}
                 </PaginationItem>
               ))}
-            {/* {pageNumber && pageNumber.length > 3 ? (
-            <PaginationItem>
-              <PaginationEllipsis />
-            </PaginationItem>
-          ) : (
-            ""
-          )} */}
-            {/* <PaginationItem>
-            <PaginationLink
-              onClick={() =>
-                customPage(Math.ceil(activeCards.length / pageSize))
-              }
-            >
-              最后页
-            </PaginationLink>
-          </PaginationItem> */}
-
             <PaginationItem>
               <PaginationNext onClick={next} />
             </PaginationItem>
