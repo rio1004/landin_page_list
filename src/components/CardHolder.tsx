@@ -4,26 +4,10 @@ import { cardPage, showModal, tabActive } from "@/store/atoms";
 import Card from "./card";
 import { cards } from "./cards";
 import { useAtom } from "jotai";
-import { act, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import ModalComponent from "./ModalComponent";
 import { motion } from "framer-motion";
-import {
-  Pagination,
-  PaginationContent,
-  PaginationEllipsis,
-  PaginationItem,
-  PaginationLink,
-  PaginationNext,
-  PaginationPrevious,
-} from "@/components/ui/pagination";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
-import { Button } from "@/components/ui/button";
+
 import { Separator } from "./ui/separator";
 import Image from "next/image";
 import PlatformLink from "./PlatformLink";
@@ -43,7 +27,6 @@ const CardHolder = () => {
   const [page, setPage] = useAtom(cardPage);
   const [pageSize, setPageSize] = useState<number>(10);
   const [total, setTotal] = useState<number>();
-  const [showPagination, setShowPagination] = useState<boolean>(false);
   const [pageNumber, setPageNumber] = useState<any[]>([]);
   const [paginatedData, setPaginatedData] = useState<CardType[]>([]);
   const [activePlatform, seActivePlatform] = useState<string>("all");
@@ -193,52 +176,6 @@ const CardHolder = () => {
           pageSize={pageSize}
           customPage={customPage}
         />
-        // <Pagination className={`${showMd ? "blur" : ""}`}>
-        //   <PaginationContent>
-        //     <PaginationItem>
-        //       <PaginationPrevious onClick={prev} />
-        //     </PaginationItem>
-        //     {pageNumber &&
-        //       pageNumber.map((pageNumber) => (
-        //         <PaginationItem>
-        //           {pageNumber == page ? (
-        //             <PaginationLink
-        //               isActive
-        //               onClick={() => customPage(pageNumber)}
-        //             >
-        //               {pageNumber}
-        //             </PaginationLink>
-        //           ) : (
-        //             <PaginationLink onClick={() => customPage(pageNumber)}>
-        //               {pageNumber}
-        //             </PaginationLink>
-        //           )}
-        //         </PaginationItem>
-        //       ))}
-        //     <PaginationItem>
-        //       <PaginationNext onClick={next} />
-        //     </PaginationItem>
-        //   </PaginationContent>
-        //   <Button variant="outline" disabled className="ml-2">
-        //     {activeCards.length + " 个"}
-        //   </Button>
-        //   <Select
-        //     onValueChange={(val) => {
-        //       handlePageSize(val);
-        //     }}
-        //   >
-        //     <SelectTrigger className="w-[100px] ml-2">
-        //       <SelectValue placeholder={pageSize + " 个/页"} />
-        //     </SelectTrigger>
-        //     <SelectContent>
-        //       <SelectItem value="10">10 个/页</SelectItem>
-        //       <SelectItem value="20">20 个/页</SelectItem>
-        //       <SelectItem value="30">30 个/页</SelectItem>
-        //       <SelectItem value="40">40 个/页</SelectItem>
-        //       <SelectItem value="50">50 个/页</SelectItem>
-        //     </SelectContent>
-        //   </Select>
-        // </Pagination>
       )}
     </>
   );
