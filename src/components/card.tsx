@@ -75,9 +75,19 @@ const Card = ({ url, title, id }: CardProps) => {
           className="rounded-2xl border-white border-2"
           src={url}
           height="500px"
+          scrolling="yes"
         >
           Your browser does not support iframes.
         </iframe>
+        <div
+          className="absolute inset-0"
+          style={{ pointerEvents: "none" }}
+        >
+          <div
+            className="absolute inset-0"
+            style={{ pointerEvents: "all" }}
+          ></div>
+        </div>
         <motion.div
           variants={itemVariants}
           animate={isHovered ? "open" : "closed"}
@@ -85,6 +95,7 @@ const Card = ({ url, title, id }: CardProps) => {
           <BottomDrawer handleClose={handleClose} url={url} />
         </motion.div>
       </div>
+
       <div className="description flex justify-between my-5 w-[80%] max-w-[280px]">
         <p className="text-2xl font-black">{title}</p>
         <div onClick={() => toggleFavorite()}>

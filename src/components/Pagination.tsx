@@ -43,7 +43,7 @@ const PaginationComponent = ({
   activeCards,
 }: PaginationProps) => {
   return (
-    <Pagination className={`${showMd ? "blur" : ""}`}>
+    <Pagination className={`${showMd ? "blur" : ""} mb-10 md:mb-0`}>
       <PaginationContent>
         <PaginationItem>
           <PaginationPrevious onClick={prev} />
