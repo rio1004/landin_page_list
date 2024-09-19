@@ -43,14 +43,18 @@ const PaginationComponent = ({
   activeCards,
 }: PaginationProps) => {
   return (
-    <Pagination className={`${showMd ? "blur" : ""} mb-10 md:mb-0`}>
-      <PaginationContent>
+    <Pagination
+      className={`${
+        showMd ? "blur" : ""
+      } mb-10  md:mb-0 flex items-center flex-col md:flex-row`}
+    >
+      <PaginationContent className="flex justify-center">
         <PaginationItem>
           <PaginationPrevious onClick={prev} />
         </PaginationItem>
         {pageNumber &&
           pageNumber.map((pageNumber) => (
-            <PaginationItem>
+            <PaginationItem className="hidden md:block">
               {pageNumber == page ? (
                 <PaginationLink isActive onClick={() => customPage(pageNumber)}>
                   {pageNumber}
@@ -66,25 +70,28 @@ const PaginationComponent = ({
           <PaginationNext onClick={next} />
         </PaginationItem>
       </PaginationContent>
-      <Button variant="outline" disabled className="ml-2">
+
+      <div className="flex justify-center">
+        <Select
+          onValueChange={(val) => {
+            handlePageSize(val);
+          }}
+        >
+          <SelectTrigger className="w-[100px] ml-0 md:ml-2 mt-2 md:mt-0">
+            <SelectValue placeholder={pageSize + " 个/页"} />
+          </SelectTrigger>
+          <SelectContent>
+            <SelectItem value="10">10 个/页</SelectItem>
+            <SelectItem value="20">20 个/页</SelectItem>
+            <SelectItem value="30">30 个/页</SelectItem>
+            <SelectItem value="40">40 个/页</SelectItem>
+            <SelectItem value="50">50 个/页</SelectItem>
+          </SelectContent>
+        </Select>
+      </div>
+      <Button variant="outline" disabled className="ml-0 md:ml-2 mt-3 md:mt-0">
         {activeCards.length + " 个"}
       </Button>
-      <Select
-        onValueChange={(val) => {
-          handlePageSize(val);
-        }}
-      >
-        <SelectTrigger className="w-[100px] ml-2">
-          <SelectValue placeholder={pageSize + " 个/页"} />
-        </SelectTrigger>
-        <SelectContent>
-          <SelectItem value="10">10 个/页</SelectItem>
-          <SelectItem value="20">20 个/页</SelectItem>
-          <SelectItem value="30">30 个/页</SelectItem>
-          <SelectItem value="40">40 个/页</SelectItem>
-          <SelectItem value="50">50 个/页</SelectItem>
-        </SelectContent>
-      </Select>
     </Pagination>
   );
 };
