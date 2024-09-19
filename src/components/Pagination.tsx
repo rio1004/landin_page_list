@@ -66,9 +66,18 @@ const PaginationComponent = ({
               )}
             </PaginationItem>
           ))}
-        <PaginationItem>
-          <PaginationNext onClick={next} />
+        <PaginationItem className="md:hidden">
+          <PaginationLink isActive>{page}</PaginationLink>
         </PaginationItem>
+        {page == pageNumber.length ? (
+          <PaginationItem>
+            <PaginationNext isDisabled />
+          </PaginationItem>
+        ) : (
+          <PaginationItem>
+            <PaginationNext onClick={next} />
+          </PaginationItem>
+        )}
       </PaginationContent>
 
       <div className="flex justify-center">
