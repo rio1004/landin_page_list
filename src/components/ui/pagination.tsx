@@ -67,13 +67,19 @@ PaginationLink.displayName = "PaginationLink";
 
 const PaginationPrevious = ({
   className,
+  isDisabled,
   ...props
 }: React.ComponentProps<typeof PaginationLink>) => (
   <PaginationLink
     aria-label="Go to previous page"
     size="default"
-    className={cn("gap-1 pl-2.5", className)}
+    className={cn(
+      "gap-1 pl-2.5",
+      className,
+      `${isDisabled ? "text-slate-500" : ""}`
+    )}
     {...props}
+    isDisabled={isDisabled}
   >
     <ChevronLeftIcon className="h-4 w-4" />
     <span>下一页</span>

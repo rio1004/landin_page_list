@@ -49,9 +49,15 @@ const PaginationComponent = ({
       } mb-10  md:mb-0 flex items-center flex-col md:flex-row`}
     >
       <PaginationContent className="flex justify-center">
-        <PaginationItem>
-          <PaginationPrevious onClick={prev} />
-        </PaginationItem>
+        {page == 1 ? (
+          <PaginationItem>
+            <PaginationPrevious isDisabled />
+          </PaginationItem>
+        ) : (
+          <PaginationItem>
+            <PaginationPrevious onClick={prev} />
+          </PaginationItem>
+        )}
         {pageNumber &&
           pageNumber.map((pageNumber) => (
             <PaginationItem className="hidden md:block">
