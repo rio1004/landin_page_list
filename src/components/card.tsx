@@ -56,7 +56,7 @@ const Card = ({ url, title, id }: CardProps) => {
       console.log("Added to favorites:", favorites);
       setIsFav("/images/fillStar.png");
     } else {
-      favorites = favorites.filter((favId) => favId !== id);
+      favorites = favorites.filter((favId:number) => favId !== id);
       console.log("Removed from favorites:", favorites);
       setIsFav("/images/star.png");
     }
