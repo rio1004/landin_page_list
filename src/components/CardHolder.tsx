@@ -139,7 +139,7 @@ const CardHolder = () => {
       <div
         className={`cardHolder grid ${
           paginatedData.length < 5
-            ? "lg:grid-cols-5 md:gap-10"
+            ? `lg:grid-cols-${paginatedData.length+2} md:gap-10`
             : "grid-auto-fit-[20rem]"
         } gap-4 ${showMd ? "blur-lg" : ""}`}
       >
