@@ -1,12 +1,13 @@
 "use client";
 
 import { useAtom } from "jotai";
-import { cardPage, tabActive } from "../store/atoms";
+import { cardPage, showModal, tabActive } from "../store/atoms";
 import { useEffect } from "react";
 
 const Tabs = () => {
   // Use a state to keep track of the active tab
   const [activeTab, setActiveTab] = useAtom(tabActive);
+  const [showMd, setShowModal] = useAtom(showModal);
   const [page, setPage] = useAtom(cardPage);
 
   const toggleTab = (type: string) => {
@@ -14,7 +15,7 @@ const Tabs = () => {
     setPage(1);
   };
   return (
-    <div className="flex justify-center gap-4 p-5">
+    <div className={`${showMd ? "blur" : ""} flex justify-center gap-4 p-5`}>
       <div
         onClick={() => toggleTab("all")}
         className={`py-[5px] px-[30px] rounded-[100px] cursor-pointer ${

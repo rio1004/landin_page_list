@@ -1,5 +1,6 @@
 "use client";
 
+import React from "react";
 import { cardPage, showModal, tabActive } from "@/store/atoms";
 import Card from "./card";
 import { cards } from "./cards";
@@ -91,6 +92,12 @@ const CardHolder = () => {
     seActivePlatform(val);
     setPage(1);
   };
+  const cardHolderStyle = {
+    emptyStyle: "box border-4 border-dashed border-collapse w-[550px] h-[250px] flex justify-center flex-col items-center gap-5", 
+    filterStyle: `flex justify-center mb-[50px] ${showMd ? "blur-lg" : ""}`
+
+  }
+  // const emptyStyle = 
   return (
     <>
       {showMd && (
@@ -104,7 +111,7 @@ const CardHolder = () => {
           <ModalComponent />
         </motion.div>
       )}
-      <div className="platforms flex justify-center mb-[50px]">
+      <div className={cardHolderStyle.filterStyle}>
         <div className="flex h-5 items-center space-x-4 text-sm">
           <PlatformLink
             title="所有平台"
@@ -148,7 +155,7 @@ const CardHolder = () => {
       </div>
       {paginatedData.length == 0 ? (
         <div className="flex justify-center h-[50vh] items-center">
-          <div className="box  border-4 border-dashed border-collapse w-[550px] h-[250px] flex justify-center flex-col items-center gap-5">
+          <div className={cardHolderStyle.emptyStyle}>
             <Image
               src={"/images/Frame.svg"}
               width={100}
