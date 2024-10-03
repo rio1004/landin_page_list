@@ -121,17 +121,10 @@ const CardHolder = () => {
           />
           <Separator orientation="vertical" />
           <PlatformLink
-            title="垂直的"
+            title="新葡京"
             activePlatform={activePlatform}
             changePlatform={changePlatform}
-            platform="vertical"
-          />
-          <Separator orientation="vertical" />
-          <PlatformLink
-            title="水平的"
-            activePlatform={activePlatform}
-            changePlatform={changePlatform}
-            platform="horizontal"
+            platform="lisboa"
           />
         </div>
       </div>
