@@ -67,7 +67,7 @@ export const cards = [
   },
   {
     id: 12,
-    url: "https://20.2.80.55:9443/mgm?agent=4864569",
+    url: "https://mgm-gw-h0gyh5g5chfdeba3.a01.azurefd.net/mgm?agent=4864569",
     title: "皇冠娱乐",
     platform: "lisboa",
   },
