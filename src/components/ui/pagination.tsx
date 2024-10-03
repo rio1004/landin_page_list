@@ -82,7 +82,7 @@ const PaginationPrevious = ({
     isDisabled={isDisabled}
   >
     <ChevronLeftIcon className="h-4 w-4" />
-    <span>下一页</span>
+    <span>上一页</span>
   </PaginationLink>
 );
 PaginationPrevious.displayName = "PaginationPrevious";
