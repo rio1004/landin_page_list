@@ -134,7 +134,7 @@ export const cards = [
   //lisboa
   {
     id: 23,
-    url: "https://20.6.130.62:9443/",
+    url: "https://20.205.24.223:9443/amwnsr2?agent=5025792",
     title: "澳门威尼斯人",
     platform: "lisboa",
   },
@@ -182,7 +182,7 @@ export const cards = [
   },
   {
     id: 31,
-    url: "https://20.2.234.243:9443/pgdz?agent=4999373",
+    url: "https://20.189.97.70:9314/pgdz?agent=4999373",
     title: "PG电子",
     platform: "lisboa",
   },
@@ -250,6 +250,48 @@ export const cards = [
     id: 42,
     url: "https://ylgj-gw-bkgqd6bjg6ffencw.a01.azurefd.net/ylgj?agent=4999358",
     title: "永利国际",
+    platform: "lisboa",
+  },
+  {
+    id: 43,
+    url: "https://20.255.100.58:9117/amwnsrh2?agent=5454733",
+    title: "澳门威尼斯人H2",
+    platform: "lisboa",
+  },
+  {
+    id: 44,
+    url: "https://20.2.161.16:9118/blmh1?agent=5459465",
+    title: "百乐门",
+    platform: "lisboa",
+  },
+  {
+    id: 45,
+    url: "https://52.184.67.138:9119/jdbdzh1?agent=4999376",
+    title: "JDB电子",
+    platform: "lisboa",
+  },
+  {
+    id: 46,
+    url: "https://20.2.8.128:9120/lswjsh1?agent=5459468",
+    title: "拉斯维加斯 ",
+    platform: "lisboa",
+  },
+  {
+    id: 47,
+    url: "https://20.2.29.82:9121/amwnsrh3?agent=5459473",
+    title: "澳门威尼斯人H3",
+    platform: "lisboa",
+  },
+  {
+    id: 48,
+    url: "https://20.2.200.57:9123/amyhh2?agent=5459493",
+    title: "澳门银河H2",
+    platform: "lisboa",
+  },
+  {
+    id: 49,
+    url: "https://20.2.34.30:9324/yhgj?agent=5474027",
+    title: "银河国际",
     platform: "lisboa",
   },
 ];
