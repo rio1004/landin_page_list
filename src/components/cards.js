@@ -284,12 +284,6 @@ export const cards = [
   },
   {
     id: 48,
-    url: "https://20.2.200.57:9123/amyhh2?agent=5459493",
-    title: "澳门银河H2",
-    platform: "lisboa",
-  },
-  {
-    id: 49,
     url: "https://20.2.34.30:9324/yhgj?agent=5474027",
     title: "银河国际",
     platform: "lisboa",
