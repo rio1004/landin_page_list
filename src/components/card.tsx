@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import BottomDrawer from "./BottomDrawer";
 import { motion, Variants } from "framer-motion";
 
@@ -23,6 +23,7 @@ const itemVariants: Variants = {
 const Card = ({ url, title, id }: CardProps) => {
   const [favorite, setIsFav] = useState<string>("");
   const [isHovered, setIsHovered] = useState<boolean>(false);
+  const frameLoad = useRef(null);
   useEffect(() => {
     const favStorage = localStorage.getItem("favorites");
     if (!favStorage) {
@@ -56,13 +57,17 @@ const Card = ({ url, title, id }: CardProps) => {
       console.log("Added to favorites:", favorites);
       setIsFav("/images/fillStar.png");
     } else {
-      favorites = favorites.filter((favId:number) => favId !== id);
+      favorites = favorites.filter((favId: number) => favId !== id);
       console.log("Removed from favorites:", favorites);
       setIsFav("/images/star.png");
     }
     localStorage.setItem("favorites", JSON.stringify(favorites));
   };
-
+  const reloadIframe = () => {
+    if (frameLoad.current) {
+      frameLoad.current.src = frameLoad.current.src; // This reloads the iframe
+    }
+  };
   return (
     <div
       className="card flex justify-center flex-col items-center"
@@ -72,27 +77,24 @@ const Card = ({ url, title, id }: CardProps) => {
     >
       <div className="frameHolder relative">
         <iframe
+          ref={frameLoad}
           className="rounded-2xl border-white border-2"
           src={url}
           height="500px"
-          scrolling="yes"
+          style={{ overflow: "scroll" }}
         >
           Your browser does not support iframes.
         </iframe>
-        <div
-          className="absolute inset-0"
-          style={{ pointerEvents: "none" }}
-        >
-          <div
-            className="absolute inset-0"
-            style={{ pointerEvents: "all" }}
-          ></div>
-        </div>
+
         <motion.div
           variants={itemVariants}
           animate={isHovered ? "open" : "closed"}
         >
-          <BottomDrawer handleClose={handleClose} url={url} />
+          <BottomDrawer
+            handleClose={handleClose}
+            url={url}
+            handleReload={reloadIframe}
+          />
         </motion.div>
       </div>
 
