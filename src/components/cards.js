@@ -7,7 +7,7 @@ export const cards = [
   },
   {
     id: 2,
-    url: "https://shdx-gw1-gmepfgh6bua5cmf2.a01.azurefd.net/shengda?agent=2433749",
+    url: "https://shdx-gw2-anc7fkhhhrfyb7d7.a01.azurefd.net/",
     title: "盛大",
     platform: "yifa",
   },
