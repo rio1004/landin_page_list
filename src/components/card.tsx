@@ -81,7 +81,6 @@ const Card = ({ url, title, id }: CardProps) => {
           className="rounded-2xl border-white border-2"
           src={url}
           height="500px"
-          style={{ overflow: "scroll" }}
         >
           Your browser does not support iframes.
         </iframe>
