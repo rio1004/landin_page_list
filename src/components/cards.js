@@ -254,7 +254,7 @@ export const cards = [
   },
   {
     id: 43,
-    url: "https://20.255.100.58:9117/amwnsrh2?agent=5454733",
+    url: "https://20.255.100.58:9117/amwnsrh2?agent=5454733&isDemo=true",
     title: "澳门威尼斯人H2",
     platform: "lisboa",
   },

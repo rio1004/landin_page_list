@@ -49,9 +49,9 @@ const BottomDrawer = ({ handleReload, url, handleClose }: BottomProps) => {
         <div onClick={() => openModal()} className="cursor-pointer">
           <Button icon="/images/eye.svg" title="扩大" />
         </div>
-        <a href={url} target="_blank" className="cursor-pointer">
+        {/* <a href={url} target="_blank" className="cursor-pointer">
           <Button icon="/images/goto.svg" title="转至链接" />
-        </a>
+        </a> */}
       </div>
     </div>
   );
