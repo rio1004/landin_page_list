@@ -288,4 +288,16 @@ export const cards = [
     title: "银河国际",
     platform: "lisboa",
   },
+  {
+    id: 49,
+    url: "https://8899xz2.la/mobie.html?shareName=8899xz2.la&proxyAccount=",
+    title: "拉斯维加斯",
+    platform: "yifa",
+  },
+  {
+    id: 50,
+    url: "https://796546.co/m.html?channelCode=796546.co",
+    title: "开元棋牌",
+    platform: "lisboa",
+  },
 ];
