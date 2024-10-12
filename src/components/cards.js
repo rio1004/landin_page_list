@@ -121,7 +121,7 @@ export const cards = [
   },
   {
     id: 21,
-    url: "https://20.2.85.119:9443/876qp?agent=5426814",
+    url: "https://20.2.82.92:9443/876qp?agent=5426814",
     title: "876棋牌",
     platform: "lisboa",
   },
