@@ -7,7 +7,7 @@ type ButtonProps = {
 
 const Button = ({ icon, title }: ButtonProps) => {
   return (
-    <div className="view flex items-center w-[120px] h-[35px] justify-center hover:shadow-lg transition-all border-[2px] rounded-full border-[#4E4E4E] gap-[10px] bg-white">
+    <div className="view flex items-center w-[160px] h-[40px] justify-center hover:shadow-lg transition-all border-[2px] rounded-full border-[#4E4E4E] gap-[10px] bg-white">
       <Image
         src={icon}
         alt={"View Button"}
