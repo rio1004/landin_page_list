@@ -135,7 +135,6 @@ const CardHolder = () => {
           />
         </div>
       </div>
-
       <div
         className={`cardHolder grid ${
           paginatedData.length < 5

@@ -292,7 +292,7 @@ export const cards = [
     id: 49,
     url: "https://8899xz2.la/mobie.html?shareName=8899xz2.la&proxyAccount=",
     title: "拉斯维加斯",
-    platform: "yifa",
+    platform: "lisboa",
   },
   {
     id: 50,
