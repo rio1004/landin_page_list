@@ -300,4 +300,47 @@ export const cards = [
     title: "开元棋牌",
     platform: "lisboa",
   },
+  {
+    id: 51,
+    url: "https://20.2.18.230:9122/pgdzh1?agent=5459480",
+    title: "PG电子H",
+    platform: "yifa",
+  },
+  {
+    id: 52,
+    url: "https://20.2.200.57:9123/amyhh2?agent=5459493",
+    title: "澳门银河H2",
+    platform: "yifa",
+  },
+  {
+    id: 53,
+    url: "https://djyl-gw-d2avd4caaad6aqgt.a01.azurefd.net/djyl?agent=5532449",
+    title: "顶级娱乐城",
+    platform: "yifa",
+  },
+  {
+    id: 54,
+    url: "https://amxpjs5-gw-fsemdjbwfuc0e9b4.a01.azurefd.net/amxpjs5?agent=5541636",
+    title: "澳门新葡京S5",
+    platform: "yifa",
+  },
+  {
+    id: 55,
+    url: "https://pgdzs2-gw-encrhnfwf3a5evgs.a01.azurefd.net/pgdzs2?agent=5541632",
+    title: "PG电子S2",
+    platform: "yifa",
+  },
+  {
+    id: 56,
+    url: "https://20.255.62.23:9443/jsyl?agent=5373057",
+    title: "金沙娱乐",
+    platform: "yifa",
+  },
+  {
+    id: 57,
+    url: "https://tbyl-gw-gzbhfbdxhqfnbabq.a01.azurefd.net/tbyl?agent=5560378",
+    title: "通宝娱乐",
+    platform: "yifa",
+  },
+
 ];
