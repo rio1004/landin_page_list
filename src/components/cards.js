@@ -140,7 +140,7 @@ export const cards = [
   },
   {
     id: 24,
-    url: "https://52.184.69.118:9302/amxpj2?agent=5025791",
+    url: "https://4.191.73.150:9302/amxpj2?agent=5025791",
     title: "澳门新葡京",
     platform: "lisboa",
   },
@@ -190,12 +190,6 @@ export const cards = [
     id: 32,
     url: "https://20.2.38.35:9315/lyqp?agent=4999372",
     title: "AG娱乐S2",
-    platform: "lisboa",
-  },
-  {
-    id: 33,
-    url: "https://20.2.13.141:9108/amxpj3?agent=5256879",
-    title: "澳门新葡京",
     platform: "lisboa",
   },
   {
@@ -286,12 +280,6 @@ export const cards = [
     id: 48,
     url: "https://20.2.193.139:9324/yhgj?agent=5474027",
     title: "银河国际",
-    platform: "lisboa",
-  },
-  {
-    id: 49,
-    url: "https://8899xz2.la/mobie.html?shareName=8899xz2.la&proxyAccount=",
-    title: "拉斯维加斯",
     platform: "lisboa",
   },
   {
